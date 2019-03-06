@@ -12,28 +12,25 @@ class MainViewController: UIViewController {
     
     @IBAction func rockPressed(_ sender: Any) {
         myMove = .Rock
-        nextMove()
+        performSegue(withIdentifier: "mysegue", sender: self)
     }
     
     @IBAction func paperPressed(_ sender: Any) {
         myMove = .Paper
-        nextMove()
+        performSegue(withIdentifier: "mysegue", sender: self)
     }
     
     @IBAction func scissorsPressed(_ sender: Any) {
         myMove = .Scissors
-        nextMove()
+        performSegue(withIdentifier: "mysegue", sender: self)
     }
-
-    func nextMove() {
-        let resultsViewController = self.storyboard!.instantiateViewController(withIdentifier: "ResultsVC") as! ResultsViewController
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultsViewController = segue.destination as! ResultsViewController
         resultsViewController.prevMove = myMove
-        self.show(resultsViewController, sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }
-

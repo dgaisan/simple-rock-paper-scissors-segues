@@ -40,7 +40,5 @@ class ResultsViewController: UIViewController {
         announcementLabel.text = "It's a \(match.toString())"
     }
     
-    @IBAction func closeView(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+    
 }
